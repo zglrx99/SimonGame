@@ -23,6 +23,7 @@ $(document).ready(function () {
     });
 
     $('#btn1').click(function () {
+        // $('#btn1_audio').prop('autoplay', true);
         userStep(1);
         if (userArr.length == computerArr.length) {
             checkArrays();
@@ -106,6 +107,26 @@ function setShow() {
 function userStep(element) {
     if (SHOW == false) {
         userArr.push(element);
+        switch (element) {
+            case 1:
+                var audio = new Audio('http://static1.grsites.com/archive/sounds/misc/misc001.mp3');
+                audio.play();
+                break;
+            case 2:
+                var audio = new Audio('http://static1.grsites.com/archive/sounds/misc/misc008.mp3');
+                audio.play();
+                break;
+            case 3:
+                var audio = new Audio('http://static1.grsites.com/archive/sounds/misc/misc011.mp3');
+                audio.play();
+                break;
+            case 4:
+                var audio = new Audio('http://static1.grsites.com/archive/sounds/misc/misc285.mp3');
+                audio.play();
+                break;
+            default:
+                break;
+        }
     }
 }
 
@@ -146,7 +167,7 @@ function generateNewStep() {
 function showing() {
     window.setInterval(function () {
         var newTime = new Date();
-        if (SHOW == true && newTime - currentTime > 600) {
+        if (SHOW == true && newTime - currentTime > 1000) {
             var but = '#btn' + computerArr[MAS_LENGTH];
             if (MAS_LENGTH > -1) {
                 if (TEMP == MAS_LENGTH) {
@@ -154,6 +175,26 @@ function showing() {
                     MAS_LENGTH -= 1;
                     currentTime = new Date();
                 } else {
+                    switch (computerArr[MAS_LENGTH]) {
+                        case 1:
+                            var audio = new Audio('http://static1.grsites.com/archive/sounds/misc/misc001.mp3');
+                            audio.play();
+                            break;
+                        case 2:
+                            var audio = new Audio('http://static1.grsites.com/archive/sounds/misc/misc008.mp3');
+                            audio.play();
+                            break;
+                        case 3:
+                            var audio = new Audio('http://static1.grsites.com/archive/sounds/misc/misc011.mp3');
+                            audio.play();
+                            break;
+                        case 4:
+                            var audio = new Audio('http://static1.grsites.com/archive/sounds/misc/misc285.mp3');
+                            audio.play();
+                            break;
+                        default:
+                            break;
+                    }
                     $(but).removeClass('btn-primary');
                     TEMP = MAS_LENGTH;
                     currentTime = new Date()
@@ -161,7 +202,7 @@ function showing() {
             } else {
                 SHOW = false;
                 $('#sayError').addClass('hide');
-                
+
             }
         }
     }, 5);
