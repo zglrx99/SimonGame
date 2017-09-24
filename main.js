@@ -85,14 +85,16 @@ $(document).ready(function () {
     });
 
     $('#btnStop').click(function () {
-        SHOW = false;
-        userArr = [];
-        computerArr = [];
-        $('#starter-cont').removeClass('hide');
-        $('.jumbotron').addClass('hide');
-        $('#gameMenu').addClass('hide');
-        $('#infoResult').removeClass('hide');
-        $('#infoResult').text('Your final score is ' + (Number($('#counter').text()) - 1));
+        if (SHOW == false) {
+            SHOW = false;
+            userArr = [];
+            computerArr = [];
+            $('#starter-cont').removeClass('hide');
+            $('.jumbotron').addClass('hide');
+            $('#gameMenu').addClass('hide');
+            $('#infoResult').removeClass('hide');
+            $('#infoResult').text('Your final score is ' + (Number($('#counter').text()) - 1));
+        }
     });
 });
 
